@@ -1,5 +1,5 @@
 {
-  "scenario": "scenarios/full-route-monday.json",
+  "scenario": "public/scenarios/full-route-monday.json",
   "scenarioHash": "8f92bb4c",
   "description": "Simulated human: estimates, one fixed plan then recover",
   "inputs": [

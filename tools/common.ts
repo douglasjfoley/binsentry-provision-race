@@ -6,10 +6,10 @@ import type { Sim } from '../src/sim/sim.ts';
 
 export function scenarioFiles(args: string[]): string[] {
   if (args.length) return args;
-  return readdirSync('scenarios')
+  return readdirSync('public/scenarios')
     .filter((f) => f.endsWith('.json'))
     .sort()
-    .map((f) => join('scenarios', f));
+    .map((f) => join('public/scenarios', f));
 }
 
 const sec = (tick: number) => (tick / TICKS_PER_SEC).toFixed(2).padStart(6);

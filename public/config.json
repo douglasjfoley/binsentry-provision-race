@@ -1,0 +1,12 @@
+{
+  "deviceId": "booth-1",
+  "defaultLevel": "full-route",
+  "scenarios": ["scenarios/full-route-monday.json"],
+  "idle": { "resultsSec": 20, "raceSec": 45, "setupSec": 30 },
+  "volume": 0.8,
+  "muted": false,
+  "adminPin": "2027",
+  "leaderboardResetTime": "06:00",
+  "ctaUrl": "https://binsentry.com/ai?utm_source=ippe2027&utm_medium=booth_game&utm_campaign=provision_launch",
+  "leadCapture": "light"
+}

@@ -1,4 +1,4 @@
-// Usage: node tools/harness.ts [scenarios/*.json ...]   (defaults to every file in scenarios/)
+// Usage: node tools/harness.ts [public/scenarios/*.json ...]   (defaults to every file in public/scenarios/)
 // Re-verifies ProVision's stored plan, runs the best-human policies, and writes guarantee.bestHumanSec,
 // guarantee.passed and guarantee.inputsHash. Exits non-zero if any scenario fails.
 import { readFileSync, writeFileSync } from 'node:fs';

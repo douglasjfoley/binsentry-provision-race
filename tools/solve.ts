@@ -1,4 +1,4 @@
-// Usage: node tools/solve.ts [scenarios/*.json ...]   (defaults to every file in scenarios/)
+// Usage: node tools/solve.ts [public/scenarios/*.json ...]   (defaults to every file in public/scenarios/)
 // Finds ProVision's optimal plan and writes provision.plan, provision.finishSec and provision.solverVersion.
 // Clears guarantee.passed: run the harness afterwards.
 import { readFileSync, writeFileSync } from 'node:fs';

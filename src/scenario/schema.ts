@@ -59,6 +59,8 @@ export const ScenarioSchema = z
       unloadSecPerTon: z.number().min(0),
       outOfFeedPenaltySec: z.number().min(0),
       secToRealMinutes: z.number().positive(),
+      /** Real-world kilometres per map unit, for the results screen. */
+      kmPerMapUnit: z.number().positive().optional(),
     }),
     roads: z.strictObject({
       nodes: z.array(z.strictObject({ id, x: z.number(), y: z.number() })).min(2),
@@ -156,7 +158,7 @@ export function loadScenarioForGame(json: unknown, source = 'scenario'): Scenari
 export function scenarioInputsHash(s: Scenario): string {
   const inputs = {
     truck: s.truck,
-    rates: { ...s.rates, secToRealMinutes: undefined },
+    rates: { ...s.rates, secToRealMinutes: undefined, kmPerMapUnit: undefined },
     roads: s.roads,
     mill: s.mill,
     feeds: s.feeds.map((f) => f.id),

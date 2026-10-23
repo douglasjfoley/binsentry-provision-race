@@ -7,7 +7,7 @@ import { Sim, runPlan } from '../src/sim/sim.ts';
 import { solveProvision } from '../src/solver/drive.ts';
 import { verify, type ReplayLog } from '../tools/replay.ts';
 
-const monday = () => parseScenario(JSON.parse(readFileSync('scenarios/full-route-monday.json', 'utf8')));
+const monday = () => parseScenario(JSON.parse(readFileSync('public/scenarios/full-route-monday.json', 'utf8')));
 
 // Speed 60 = 1 map unit per tick, so drive times are easy to read. Load 1 tick/ton, unload 1 tick/ton.
 function tiny(over: Partial<Scenario['bins'][number]>[] = []): Scenario {
@@ -150,7 +150,7 @@ test('replay logs reproduce their recorded results', () => {
 });
 
 test('schema: the game refuses unpassed or edited scenarios', () => {
-  const json = JSON.parse(readFileSync('scenarios/full-route-monday.json', 'utf8'));
+  const json = JSON.parse(readFileSync('public/scenarios/full-route-monday.json', 'utf8'));
   assert.doesNotThrow(() => loadScenarioForGame(json), 'the shipped scenario must be playable');
   const unpassed = { ...json, guarantee: { ...json.guarantee, passed: false } };
   assert.throws(() => loadScenarioForGame(unpassed), /has not passed/);
