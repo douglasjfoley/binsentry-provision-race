@@ -1,0 +1,140 @@
+{
+  "id": "full-route-monday",
+  "level": "full-route",
+  "name": "Monday Morning",
+  "setup": "Monday morning. C1 is almost empty.",
+  "feeds": [
+    {"id": "starter", "label": "Starter", "color": "#F2B705", "icon": "starter.svg"},
+    {"id": "grower", "label": "Grower", "color": "#3E8EDE", "icon": "grower.svg"},
+    {"id": "finisher", "label": "Finisher", "color": "#8C5AC8", "icon": "finisher.svg"}
+  ],
+  "truck": {"compartments": 3, "tonsPerCompartment": 8, "speed": 240},
+  "rates": {"loadSecPerTon": 0.25, "unloadSecPerTon": 0.2, "outOfFeedPenaltySec": 10, "secToRealMinutes": 6},
+  "roads": {
+    "nodes": [
+      {"id": "mill", "x": 960, "y": 540},
+      {"id": "jN", "x": 960, "y": 330},
+      {"id": "jW", "x": 640, "y": 540},
+      {"id": "jE", "x": 1280, "y": 540},
+      {"id": "jS", "x": 960, "y": 800},
+      {"id": "aGate", "x": 700, "y": 330},
+      {"id": "a1", "x": 700, "y": 170},
+      {"id": "a2", "x": 520, "y": 330},
+      {"id": "bGate", "x": 1220, "y": 330},
+      {"id": "b1", "x": 1220, "y": 170},
+      {"id": "b2", "x": 1400, "y": 330},
+      {"id": "jSW", "x": 300, "y": 540},
+      {"id": "c1", "x": 220, "y": 880},
+      {"id": "cS", "x": 560, "y": 900},
+      {"id": "jDE", "x": 1640, "y": 540},
+      {"id": "d1", "x": 1760, "y": 820},
+      {"id": "dS", "x": 1500, "y": 880}
+    ],
+    "edges": [
+      ["mill", "jN"],
+      ["mill", "jW"],
+      ["mill", "jE"],
+      ["mill", "jS"],
+      ["jN", "aGate"],
+      ["aGate", "a1"],
+      ["aGate", "a2"],
+      ["a2", "jW"],
+      ["jN", "bGate"],
+      ["bGate", "b1"],
+      ["bGate", "b2"],
+      ["jW", "jSW"],
+      ["jSW", "c1"],
+      ["jS", "cS"],
+      ["cS", "c1"],
+      ["jE", "jDE"],
+      ["jDE", "d1"],
+      ["jS", "dS"],
+      ["dS", "d1"]
+    ]
+  },
+  "mill": {"node": "mill"},
+  "bins": [
+    {
+      "id": "A1",
+      "farm": "Farm A",
+      "node": "a1",
+      "feed": "starter",
+      "needTons": 6,
+      "shownTons": 5,
+      "startFill": 0.4,
+      "drainPerSec": 0.00667
+    },
+    {
+      "id": "A2",
+      "farm": "Farm A",
+      "node": "a2",
+      "feed": "grower",
+      "needTons": 8,
+      "shownTons": 9,
+      "startFill": 0.55,
+      "drainPerSec": 0.011
+    },
+    {
+      "id": "B1",
+      "farm": "Farm B",
+      "node": "b1",
+      "feed": "finisher",
+      "needTons": 7,
+      "shownTons": 7,
+      "startFill": 0.35,
+      "drainPerSec": 0.01094
+    },
+    {
+      "id": "B2",
+      "farm": "Farm B",
+      "node": "b2",
+      "feed": "starter",
+      "needTons": 4,
+      "shownTons": 5,
+      "startFill": 0.6,
+      "drainPerSec": 0.01875
+    },
+    {
+      "id": "C1",
+      "farm": "Farm C",
+      "node": "c1",
+      "feed": "grower",
+      "needTons": 9,
+      "shownTons": 8,
+      "startFill": 0.15,
+      "drainPerSec": 0.00682
+    },
+    {
+      "id": "D1",
+      "farm": "Farm D",
+      "node": "d1",
+      "feed": "finisher",
+      "needTons": 10,
+      "shownTons": 9,
+      "startFill": 0.3,
+      "drainPerSec": 0.00429
+    }
+  ],
+  "provision": {
+    "planningSec": 3,
+    "plan": [
+      {"cmd": "load", "mix": ["grower", "grower", "finisher"]},
+      {"cmd": "goto", "target": "C1"},
+      {"cmd": "goto", "target": "mill"},
+      {"cmd": "load", "mix": ["starter", "grower", "finisher"]},
+      {"cmd": "goto", "target": "B1"},
+      {"cmd": "goto", "target": "B2"},
+      {"cmd": "goto", "target": "mill"},
+      {"cmd": "load", "mix": ["starter", "grower", "finisher"]},
+      {"cmd": "goto", "target": "A2"},
+      {"cmd": "goto", "target": "A1"},
+      {"cmd": "goto", "target": "mill"},
+      {"cmd": "load", "mix": [null, "finisher", "finisher"]},
+      {"cmd": "goto", "target": "D1"},
+      {"cmd": "goto", "target": "mill"}
+    ],
+    "finishSec": 51.63,
+    "solverVersion": "1.0.0"
+  },
+  "guarantee": {"bestHumanSec": 66.08, "marginSec": 5, "passed": true, "inputsHash": "8f92bb4c"}
+}

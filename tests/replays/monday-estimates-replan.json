@@ -1,0 +1,21 @@
+{
+  "scenario": "scenarios/full-route-monday.json",
+  "scenarioHash": "8f92bb4c",
+  "description": "Simulated human: estimates, re-plan at every stop",
+  "inputs": [
+    {"t": 0, "cmd": {"cmd": "load", "mix": ["grower", "finisher", "finisher"]}},
+    {"t": 0, "cmd": {"cmd": "goto", "target": "D1"}},
+    {"t": 727, "cmd": {"cmd": "goto", "target": "C1"}},
+    {"t": 1215, "cmd": {"cmd": "goto", "target": "mill"}},
+    {"t": 1468, "cmd": {"cmd": "load", "mix": ["starter", "grower", "finisher"]}},
+    {"t": 1468, "cmd": {"cmd": "goto", "target": "B1"}},
+    {"t": 1980, "cmd": {"cmd": "goto", "target": "B2"}},
+    {"t": 2113, "cmd": {"cmd": "goto", "target": "mill"}},
+    {"t": 2276, "cmd": {"cmd": "load", "mix": ["starter", "grower", "grower"]}},
+    {"t": 2276, "cmd": {"cmd": "goto", "target": "A1"}},
+    {"t": 2686, "cmd": {"cmd": "goto", "target": "A2"}},
+    {"t": 2867, "cmd": {"cmd": "goto", "target": "C1"}},
+    {"t": 3112, "cmd": {"cmd": "goto", "target": "mill"}}
+  ],
+  "expect": {"finishTick": 3365, "scoreSec": 66.08333333333334, "outOfFeed": 1}
+}

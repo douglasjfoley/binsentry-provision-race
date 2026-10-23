@@ -1,0 +1,7 @@
+node_modules
+dist
+*.log
+
+# Client brief stays out of the repository
+Race the Route Game Design Brief and Tech Spec.md
+.DS_Store
